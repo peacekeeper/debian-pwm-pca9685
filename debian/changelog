@@ -1,5 +1,5 @@
-pwm-pca9685 (4.3) unstable; urgency=low
+pwm-pca9685 (4.3-1) unstable; urgency=low
 
   * Initial Release.
 
- -- Markus Sabadello <markus@paris2>  Fri, 20 Nov 2015 09:50:04 +0100
+ -- Markus Sabadello <markus@projectdanube.org>  Fri, 20 Nov 2015 09:50:04 +0100

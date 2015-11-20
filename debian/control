@@ -1,15 +1,15 @@
 Source: pwm-pca9685
 Section: unknown
 Priority: optional
-Maintainer: Markus Sabadello <markus@paris2>
+Maintainer: Markus Sabadello <markus@projectdanube.org>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.6
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://lxr.free-electrons.com/source/drivers/pwm/
 #Vcs-Git: git://anonscm.debian.org/collab-maint/pwm-pca9685.git
 #Vcs-Browser: https://anonscm.debian.org/gitweb/?p=collab-maint/pwm-pca9685.git;a=summary
 
 Package: pwm-pca9685
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Driver for PCA9685 16-channel 12-bit PWM LED controller
+ Driver for PCA9685 16-channel 12-bit PWM LED controller
