@@ -1,13 +1,54 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
 
-VERSION=$(shell dpkg-parsechangelog |grep ^Version:|cut -d ' ' -f 2)
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
 
-%:
-	dh $@ --with dkms
+DEB_NAME=pwm-pca9685
+NAME=pwm-pca9685
+VERSION=4.3
 
-override_dh_install:
-	dh_install Makefile pwm-pc9685.c usr/src/pwm-pc9685-$(VERSION)/
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
 
-override_dh_dkms:
-	dh_dkms -V $(VERSION)
 
+build: build-stamp
+
+build-stamp: configure-stamp 
+	dh_testdir
+	$(MAKE)
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+	-$(MAKE) clean
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	$(MAKE) DESTDIR=$(CURDIR)/debian/$(DEB_NAME)-dkms NAME=$(NAME) VERSION=$(VERSION) install
+
+binary-arch: build install
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
