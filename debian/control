@@ -1,7 +1,7 @@
 Source: pwm-pca9685-dkms
 Section: misc
 Priority: optional
-Maintainer: Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>
+Maintainer: Markus Sabadello <markus@projectdanube.org>
 Build-Depends: debhelper (>= 9), dkms
 Standards-Version: 3.9.6
 
