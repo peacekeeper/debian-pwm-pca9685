@@ -4,51 +4,16 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-DEB_NAME=pwm-pca9685
-NAME=pwm-pca9685
-VERSION=4.3
+DEB_VERSION := $(shell dpkg-parsechangelog | grep ^Version:| cut -d ' ' -f 2)
+DKMS_VERSION := $(shell cat dkms.conf | grep ^PACKAGE_VERSION= | cut -d '"' -f 2)
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	touch configure-stamp
+%:
+        dh $@ --with dkms
 
+override_dh_auto_build:
+        # don't actually build the modules
 
-build: build-stamp
+ifneq ($(DEB_VERSION),$(DKMS_VERSION))
+        $(error Debian package version is different from dkms.conf package version)
+endif
 
-build-stamp: configure-stamp 
-	dh_testdir
-	$(MAKE)
-	touch $@
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-	-$(MAKE) clean
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_prep
-	dh_installdirs
-	$(MAKE) DESTDIR=$(CURDIR)/debian/$(DEB_NAME)-dkms NAME=$(NAME) VERSION=$(VERSION) install
-
-binary-arch: build install
-
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
