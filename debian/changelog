@@ -2,5 +2,5 @@ pwm-pca9685-dkms (4.3) stable; urgency=low
 
   * Automatically packaged by DKMS.
 
- -- Markus Sabadello <markus@projectdanube.org>  Wed, 25 Nov 2015 13:11:14 +0100
+ -- Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>  Wed, 25 Nov 2015 13:11:14 +0100
 
