@@ -8,5 +8,6 @@ Standards-Version: 3.8.1
 Package: pwm-pca9685-dkms
 Architecture: all
 Depends: dkms (>= 1.95), ${misc:Depends}
-Description: pwm-pca9685 driver in DKMS format.
- pwm-pca9685 driver in DKMS format.
+Description: Driver for PCA9685 16-channel 12-bit PWM LED controller
+ Driver for PCA9685 16-channel 12-bit PWM LED controller,
+ packaged in DKMS format
