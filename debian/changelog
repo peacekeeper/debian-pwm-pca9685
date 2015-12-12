@@ -2,5 +2,5 @@ pwm-pca9685-dkms (4.3-1) stable; urgency=low
 
   * Initial DKMS package version.
 
- -- Markus Sabadello <markus@danubetech.com>  Wed, 12 Dec 2015 14:52:14 +0100
+ -- Markus Sabadello <markus@danubetech.com>  Sat, 12 Dec 2015 14:52:14 +0100
 
