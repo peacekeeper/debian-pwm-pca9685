@@ -4,4 +4,6 @@ pwm-pca9685-dkms.postinst.debhelper
 pwm-pca9685-dkms.prerm.debhelper
 pwm-pca9685-dkms.substvars
 pwm-pca9685-dkms/
+pwm-pca9685-dkms.dkms.debhelper
+pwm-pca9685-dkms.preinst.debhelper
 
