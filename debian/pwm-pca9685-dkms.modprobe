@@ -1,0 +1,5 @@
+# settings for pwm-pca9685-dkms
+
+# uncomment the following line
+# to blacklist the whole pwm-pca9685 module
+#blacklist pwm-pca9685

@@ -1,19 +1,19 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
 
-# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-DEB_VERSION := $(shell dpkg-parsechangelog | grep ^Version:| cut -d ' ' -f 2)
-DKMS_VERSION := $(shell cat dkms.conf | grep ^PACKAGE_VERSION= | cut -d '"' -f 2)
+VERSION := $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
 
 %:
 	dh $@ --with dkms
 
-override_dh_auto_build:
-	# don't actually build the modules
+override_dh_install:
+	dh_install src/*.h src/*.c src/Makefile usr/src/pwm-pca9685-$(VERSION)/
+	find debian/pwm-pca9685-dkms/usr/src -type f -perm -5 -print0 2>/dev/null | xargs -0r chmod a-X
 
-ifneq ($(DEB_VERSION),$(DKMS_VERSION))
-	$(warn Debian package version is different from dkms.conf package version)
-endif
+override_dh_dkms:
+	dh_dkms -V $(VERSION)
+
+# do nothing
+override_dh_auto_configure override_dh_auto_build override_dh_auto_test override_dh_auto_install override_dh_auto_clean:
 

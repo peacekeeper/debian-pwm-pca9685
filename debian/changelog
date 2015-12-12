@@ -1,6 +1,6 @@
-pwm-pca9685-dkms (4.3) stable; urgency=low
+pwm-pca9685-dkms (4.3-1) stable; urgency=low
 
-  * Automatically packaged by DKMS.
+  * Initial DKMS package version.
 
- -- Markus Sabadello <markus@projectdanube.org>  Wed, 25 Nov 2015 13:11:14 +0100
+ -- Markus Sabadello <markus@danubetech.com>  Wed, 12 Dec 2015 14:52:14 +0100
 
