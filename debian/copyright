@@ -4,7 +4,7 @@ Source: http://lxr.free-electrons.com/source/drivers/pwm/
 
 Files: *
 Copyright:
- 2015 Markus Sabadello <markus@projectdanube.org>
+ 2015 Markus Sabadello <markus@danubetech.com>
 License: GPL-2.0+
 
 Files: pwm-pca9685-4.3/*
@@ -15,7 +15,7 @@ License: GPL-2.0+
 
 Files: debian/*
 Copyright:
- 2015 Markus Sabadello <markus@projectdanube.org>
+ 2015 Markus Sabadello <markus@danubetech.com>
 License: GPL-2.0+
 
 License: GPL-2.0+

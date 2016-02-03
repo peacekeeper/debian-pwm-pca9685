@@ -1,13 +1,11 @@
 Source: pwm-pca9685-dkms
 Section: kernel
 Priority: optional
-Maintainer: Markus Sabadello <markus@projectdanube.org>
-Build-Depends: debhelper (>= 9), dkms
-Standards-Version: 3.9.6
+Maintainer: Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 7), dkms
+Standards-Version: 3.8.1
 
 Package: pwm-pca9685-dkms
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, dkms (>= 1.95)
-Description: pwm-pca9685 driver in DKMS format
- Driver for PCA9685 16-channel 12-bit PWM LED controller
- packaged in DKMS format
+Depends: dkms (>= 1.95), ${misc:Depends}
+Description: pwm-pca9685 driver in DKMS format.
